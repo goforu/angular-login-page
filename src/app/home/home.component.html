@@ -1,0 +1,11 @@
+<div>
+  <mat-toolbar>
+    <span>Hello! My name is {{ user?.data.fullName }}</span>
+  </mat-toolbar>
+  <mat-card>
+    <p>
+      My slogan is {{ user?.data.slogan }}
+    </p>
+  </mat-card>
+  <button mat-button color="warn" (click)="loggout()">Logout</button>
+</div>
