@@ -8,13 +8,21 @@ Valid User(name/password)
 
 ## Usage
 1. Download the repo
+```sh
 	git clone https://github.com/goforu/angular-login-page.git
+```
 2. Install all the dependencies
+```sh
 	npm install
+```
 3. Hot load frontend source files
+```sh
 	ng serve -o
+```
 4. Start up nodeJs sever
+```sh
 	node app.js
+```
 
 ## How it works
 
