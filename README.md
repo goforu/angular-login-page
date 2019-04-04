@@ -1,27 +1,24 @@
-# MyLoginApp
+## Environment:
+ Node v8.9.0 NPM 6.8.0
+Valid User(name/password)
+* Joey/12345
+* Jenny/12345
+* Admin/admin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
-## Development server
+## Usage
+1. Download the repo
+	git clone https://github.com/goforu/angular-login-page.git
+2. Install all the dependencies
+	npm install
+3. Hot load frontend source files
+	ng serve -o
+4. Start up nodeJs sever
+	node app.js
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How it works
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+	    The backend is built on Express using NodeJs to handle XHR requests. Port 3000 from Node sever is proxied to Angular hot load server to avoid cross domain issue. 
+	    The key idea of Login Page is that a unique sessionId has been used to make identity connection between backend and frontend. Server would generate a sessionId in the backend once a user logged in and send it back to the browser. The browser would possess this sessionId either in cookies or local storage ( cookies at this time) as an authentication.  
+	    Multi login has been prevented because if user logged in from another end, server would generate a new sessionId. Then the old one would be no longer valid.
+	    In the frontend, I used HttpIntercepter to check the login state whenever user sending a request. Once logged out state detected, it would redirect to the login page. 
